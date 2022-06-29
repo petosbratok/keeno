@@ -10,46 +10,25 @@
       href="https://iconarchive.com/download/i109565/cjdowner/cryptocurrency-flat/ICON-ICX.ico">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/media.css' %}">
     {% block links %}{% endblock %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     {% if title %}
-        <title>Django Blog - {{ title }}</title>
+        <title>keeno - {{ title }}</title>
     {% else %}
-        <title>Django Blog</title>
+        <title>keeno</title>
     {% endif %}
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo-container">
-          <a class="logo" href="{% url 'blog-home' %}">Memedozer.</a>
-          <span>Share <span class="attention-word">your</span> meme❤️</span>
-        </div>
-        <ul class="menu">
-            <li id="about-li" class="about-li"><a id="about-btn" href="/about">About</a></li>
-            <li id="home-li" class="home-li"><a id="home-btn" href="/">Home</a></li>
-          {% if user.is_authenticated %}
-            <li><a id="new-post-btn" href="{% url 'post-create' %}">New post</a></li>
-            <li><a id="profile-btn" href="{% url 'profile' %}">Profile</a></li>
-            <li><a id="log-out-btn" href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
-            <li><a id="log-in-btn" href="{% url 'login' %}">Log In</a></li>
-            <li><a id="register-btn" href="{% url 'register' %}">Register</a></li>
-          {% endif %}
-        </ul>
-      </nav>
-    </header>
+    <nav>
+      <h1><a href="/" id="logo">keeno.</a><span id="slogan">a ticket for endless memories</span></h1>
+    </nav>
     <main>
-          <!-- {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %} -->
           {% block content %}{% endblock %}
     </main>
     <footer>

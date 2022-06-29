@@ -1,34 +1,152 @@
 @media (max-width: 1101px) {
-  .content-section{
+  .buying-section-parent{
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .buying-section{
+    width: 100%;
+    margin: 0 10px;
+  }
+  .movie-info{
+    width: 60%;
+  }
+  .description{
+    font-size: 1.1em;
+  }
+  .preview{
     flex-direction: column;
     justify-content: center;
-    width: 100%;
     align-items: center;
-    margin-left: 0;
+  }
+  .slogan{
+    margin-bottom: 30px;
+    width: 100%;
+    padding-right: 0;
+    font-size: 2em;
+  }
+  iframe{
+    width: 100%;
+  }
+  .movie-about{
+    min-height: 50vh;
+  }
+  form ul{
+    min-height: 20vh;
+    margin-right: 0;
+  }
+  main{
+    padding: 20px;
+  }
+}
+@media (max-width: 801px){
+  .description{
+    font-size: 1.25em;
+  }
+  .movie-about{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .movie-info{
+    width: 100%;
+    padding-right: 50px;
+  }
+  #info-left{
+    width: 100%;
+  }
+}
+@media (max-width: 651px){
+  .description{
+    font-size: 1.4em;
+  }
+  .buying-section{
+    margin: 0;
   }
   form{
-    margin-right: 0;
-    max-width: 60vw
+    width: 100%;
   }
-  .img-container{
-    width: 60vw;
+  .form-group{
+    padding: 0;
+    margin: 0;
   }
-  img{
-    max-width: 60vw;
+  main{
+    padding: 0;
+    padding-top: 10px;
   }
-  .btn-outline-info{
-    height: 38px !important;
+  .content{
+    border-radius: 30px 30px 0 0;
+  }
+  .seats-info{
+    padding: 0;
+  }
+  #seats{
+    margin: 10px 10px;
+    /* transform: none; */
+    transform: rotateX(20deg) scale(0.92);
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    padding: 25px 25px;
+  }
+  form h4, form h5{
+    display: inline;
+  }
+  form h5::before{
+    content: ", "
+  }
+  .movie-info{
+    padding-right: 0;
+  }
+  .screen{
+    display: none;
+  }
+  .preview{
+    padding: 10px;
   }
 }
 
-@media (max-width: 800px) {
-  form{
-    max-width: 80vw
+@media (max-width: 581px){
+  .seat{
+    border-radius: 30%;
+    width: 12px;
+    height: 12px;
+    margin: 2px;
   }
-  .img-container{
-    width: 80vw;
+  .seat-taken{
+    width: 9px;
+    height: 9px;
+    margin: 3.5px;
   }
-  img{
-    max-width: 90vw;
+}
+@media (max-width: 451px){
+  nav h1{
+    padding-left: 20px;
+  }
+  .seat{
+    width: 10px;
+    height: 10px;
+    margin: 1.6px;
+  }
+  .seat-taken{
+    width: 7.5px;
+    height: 7.5px;
+    margin: 3px;
+  }
+}
+@media (max-width: 361px){
+  nav span{
+    display: none;
+  }
+  .seat{
+    opacity: 1 !important;
+    width: 9px;
+    height: 9px;
+    margin: 1.4px;
+  }
+  .seat-taken{
+    width: 7px;
+    height: 7px;
+    margin: 2.6px;
   }
 }

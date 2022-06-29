@@ -1,0 +1,140 @@
+@media (max-width: 1101px){
+  .container{
+    width: 100% !important;
+    /* margin-top: 100px; */
+    max-width: none;
+  }
+  .container ul{
+    width: 80%;
+    margin: auto;
+  }
+  .col-1{
+    flex-basis: 35%;
+  }
+  .col-2{
+    flex-basis: 24%;
+  }
+  .col-3{
+    flex-basis: 19%;
+  }
+
+  .col-4{
+    flex-basis: 20%;
+  }
+  .genre{
+    margin: 0 10px;
+  }
+  .card_part{
+      /* animation: none; */
+      /* z-index: 40; */
+      /* transform: none; */
+  }
+  .info{
+    width: 65%;
+  }
+}
+
+@media (max-width: 751px){
+  .container{
+    width: 100% !important;
+    /* padding: 0 30px; */
+  }
+  .table-row, .table-header{
+    padding: 8px !important;
+  }
+}
+
+@media (min-width: 940px){
+  .image-mobile{
+    background: inherit !important;
+  }
+}
+@media (max-width: 940px){
+  .image{display: none;}
+  .card_part{
+    flex-direction: column;
+  }
+  .image-mobile{
+    background-size:  cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+  }
+  .image{
+    width: 100%;
+    height: 500px;
+  }
+  .genre{
+    margin: 0 10px;
+  }
+  .card_part{
+      /* animation: none;
+      z-index: 40;
+      transform: none; */
+      height: auto;
+  }
+  .card{
+    overflow-y: visible;
+    min-height: none;
+    height: 80vh;
+  }
+  .genres{
+    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .genre{
+    text-align: center;
+  }
+  .image{
+    height: 400px;
+    border-radius: 30px;
+  }
+  .card_part{
+    border-radius: 30px;
+    padding: 0;
+  }
+  .title{
+    font-size: 3em;
+  }
+  .slogan{
+    padding-top: 0;
+    /* display: none; */
+  }
+  .info{
+    width: 100%;
+    background-color:;
+    border-radius: 30px;
+    height: 80vh;
+    justify-content: flex-end;
+  }
+  .container h2{
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 601px){
+  .col{
+    padding: 8px !important;
+    /* padding-right: 0 !important; */
+  }
+  .container ul{
+    width: 100%;
+  }
+}
+
+@media (max-width: 460px){
+  .table-row .col-4 span{
+    display: none;
+  }
+  .table-row .col-4 a::after{
+    content: "Book";
+  }
+  .col-1{
+    flex-basis: 39%;
+  }
+  .col-4{
+    flex-basis: 16%;
+  }
+  .container ul{
+    width: 100%;
+  }
+}

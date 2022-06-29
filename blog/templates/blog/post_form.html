@@ -2,30 +2,81 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block links %}
-<link rel="stylesheet" type="text/css" href="{% static 'blog/post_create.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'blog/post-form-media.css' %}">
+{% load filter %}
+  <link rel="stylesheet" href="{% static 'blog/post-detail.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/post-form-media.css' %}">
 {% endblock links %}
 {% block content %}
-  <div class="content-section">
-      <form method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-          <fieldset class="form-group">
-              <legend class="border-bottom mb-4">New post</legend>
-              {{ form.title|as_crispy_field }}
-              {{ form.content|as_crispy_field }}
-              <div class="button-container">
-                <label for="id_post_pic" class="btn btn-outline-info">
-                    <input onchange="loadFile(event)" style="display: none;" type="file" name="post_pic" accept="image/*" class="clearablefileinput form-control-file" id="id_post_pic">
-                  Attach picture
-                </label>
-                <div class="form-group">
-                  <button class="btn btn-outline-success" type="sumbit">Post</button>
+		<div class="content">
+	        <div style="background: linear-gradient(to bottom, rgba(21, 16, 43, 0.6), rgba(21, 16, 43, 1)),  url('{{ object.movie.picture }}')"class="movie-about">
+	          <div class="movie-info">
+	            <h2 class="title">{{ object.movie.title }}</h2>
+	            <p class="description">
+	              {{ object.movie.description }}
+	            </p>
+	          </div>
+            <div id="info-left" class="movie-info">
+              <p>Director: {{ object.movie.director }}</p>
+              <p>Stars: {{ object.movie.stars }}</p>
+              <p>{{ object.movie.country_year }}</p>
+              <div class="genres">
+                {% with object.movie.genres|split:", " as genres %}
+                    {% for genre in genres %}
+                        <span class="genre">{{ genre }}</span>
+                    {% endfor %}
+                {% endwith %}
+	            </div>
+            </div>
+	        </div>
+          <div class="preview">
+            <h3 class="slogan">{{ object.movie.slogan }}</h3>
+            <iframe src="https://www.youtube.com/embed/{{ object.movie.trailer_link }}?autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;loop=0&amp;modestbranding=1&amp;wmode=transparent" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+          </div>
+          <div class="buying-section-parent">
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                <div class="seats-info">
+                  <h2>Book a ticket</h2>
+                  <h3>Venue: {{ object.theater.title }}</h3>
+                  <h4>{{ object.movie.title}}</h4>
+                  <h5>{{ object.date|date:"H:i d M, Y" }}</h5>
+                  {{ form.seats_taken }}
+                  <div class="seats-chosen">
+                    <span>Your seats are:</span>
+                    <ul id="seats-chosen">
+                      <li id="none-chosen">None choosen </li>
+                    </ul>
                 </div>
+                </div>
+                <div class="button-container">
+                  <div class="form-group">
+                    <a onclick="book_seats()" id="submit-btn" data-href="/api/update_seats/{{ object.id }}?post_id={{ object.id }}&seats_taken=" class="btn btn-success">Book selected</a>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+            <div class="buying-section">
+              <div class="screen"></div>
+              <div id="seats" class="seats" seats="{{object.theater.seats}}" seats_taken="{{ object.seats_taken }}">
+                {% with ''|center:object.theater.theater_height as range_height %}
+                {% with ''|center:object.theater.theater_width as range_width %}
+                {% for i in range_height %}
+                <div class="row" id="row_{{ forloop.counter }}">
+                  <span class="row-number" id="row-number{{ forloop.counter }}"></span>
+                  {% for j in range_width %}
+                  <span class="seat" onclick="chooseSeat('#{{forloop.parentloop.counter}}_{{ forloop.counter }}')" style="opacity:0; pointer-events: none;" id="{{forloop.parentloop.counter}}_{{ forloop.counter }}"></span>
+                  {% endfor %}
+                </div>
+                {% endfor %}
+                {% endwith %}
+                {% endwith %}
+
               </div>
-          </fieldset>
-      </form>
-      <div class="img-container">
-        <img src="/media/other_media/new_post.png" id="output">
-      </div>
-  </div>
+            </div>
+          </div>
+	      </div>
 {% endblock content %}
+{% block scripts %}
+  <script type="text/javascript" src="{% static 'js/theater.js' %}">
+{% endblock scripts %}

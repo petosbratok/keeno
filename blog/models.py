@@ -3,23 +3,42 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from PIL import Image
+from datetime import datetime
 
-class Post(models.Model):
+class Movie(models.Model):
     title = models.CharField(max_length=100)
-    content = models.TextField(blank=True)
-    date_posted = models.DateTimeField(default=timezone.localtime(timezone.now()))
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    post_pic = models.ImageField(null=True, blank=True,upload_to='post_pics')
-    likes = models.ManyToManyField(User, related_name="blog_posts")
-
-    def total_likes(self):
-        return self.likes.count();
+    description = models.TextField(blank=True)
+    director = models.CharField(max_length=100, blank=True)
+    stars = models.CharField(max_length=200, blank=True)
+    country_year = models.CharField(max_length=100, blank=True)
+    picture = models.CharField(max_length=200, blank=True)
+    genres = models.CharField(max_length=100, blank=True)
+    slogan = models.CharField(max_length=200, blank=True)
+    trailer_link = models.TextField(max_length=100, blank=True)
 
     def __str__(self):
         return self.title
 
+class Theater(models.Model):
+    title = models.CharField(max_length=100)
+    theater_height = models.IntegerField(blank=True)
+    theater_width = models.IntegerField(blank=True)
+    seats = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Post(models.Model):
+    theater = models.ForeignKey(Theater, blank=True, null=True, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, blank=True, null=True, on_delete=models.CASCADE)
+    date = models.DateTimeField(default=datetime.now(), blank=True, null=True)
+    seats_taken = models.TextField(blank=True)
+
+
     def get_api_like_url(self):
         return reverse('like-api-toggle', kwargs={'pk': self.pk})
+
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
