@@ -32,9 +32,9 @@ Once  `pip`  has finished downloading the dependencies:
 $ cd project
 $ python manage.py runserver
 
-Home page will be at  `http://127.0.0.1:8000/`
-Shotimes link: `http://127.0.0.1:8000/post/<post_id>`
-Admin page: `http://127.0.0.1:8000/admin`
+Home page will be at  `http://127.0.0.1:8000/`;
+Shotimes link: `http://127.0.0.1:8000/post/<post_id>`;
+Admin page: `http://127.0.0.1:8000/admin`;
 
 # Walkthrough
 
