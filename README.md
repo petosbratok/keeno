@@ -3,7 +3,7 @@
 
 ## About
 Keeno is a django based cinema ticket web-store.
-Link: keenoticket.pythonanywhere.com (**adblock recommended**)
+Link: [keenoticket.pythonanywhere.com](http://keenoticket.pythonanywhere.com) (**adblock recommended**)
 
 Implemented features:
 - Movie poster slider
@@ -18,7 +18,8 @@ Implemented features:
 
 The first thing to do is to clone the repository:
 
-$ git clone https://github.com/petosbratok/keeno
+$ git clone [https://github.com/petosbratok/keeno](https://github.com/petosbratok/keeno)
+
 $ cd keeno
 
 Install Python and Pip.
