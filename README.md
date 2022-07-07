@@ -22,7 +22,7 @@ $ git clone [https://github.com/petosbratok/keeno](https://github.com/petosbrato
 
 $ cd keeno
 
-Install Python and Pip.
+Install Python and Pip
 Install the dependencies:
 
 $ pip install -r requirements.txt
@@ -38,7 +38,7 @@ Admin page: `http://127.0.0.1:8000/admin`
 
 # Walkthrough
 
-After loading the homepage, user is greeted with a poster slider showing recent movie additions. <br>
-Below the slider you can find a showtimes table. Click on the **book here** button to get to the showtime page. <br> 
+After loading the homepage, user is greeted with a poster slider showing recent movie additions <br>
+Below the slider you can find a showtimes table. Click on the **book here** button to get to the showtime page <br> 
 Showtime page consists of all the necesarry movie info and a user interface required to book a seat
 
