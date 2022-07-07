@@ -1,4 +1,7 @@
 @media (max-width: 1101px){
+  header{
+    display: none;
+  }
   .container{
     width: 100% !important;
     /* margin-top: 100px; */
