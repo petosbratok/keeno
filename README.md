@@ -36,10 +36,11 @@ $ python manage.py runserver
 To setup the PostgreSQL DB: 
 
  1. Download and install PostgreSQL and pgAdmin. <br>
- 2. Create .env file at `keeno/` with your PostgreSQL password. <br>
+ 2. Create database named keeno. <br>
+ 3. Create .env file at `keeno/` with your PostgreSQL password. <br>
 File must look like this:  `default_pass=<your password>`. <br>
-3. Open up the cmd and run `python manage.py dumpdata --format=json blog > dumpdata.json` command. <br>
-4. Uncomment `DATABASES` in `settings.py`
+ 4. Open up the cmd and run `python manage.py dumpdata --format=json blog > dumpdata.json` command. <br>
+ 5. Uncomment `DATABASES` in `settings.py`
 
 Home page will be at  `http://127.0.0.1:8000/`<br>
 Shotimes link: `http://127.0.0.1:8000/post/<post_id>`<br>
