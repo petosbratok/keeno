@@ -137,26 +137,6 @@ iframe{
   justify-content: space-around;
   flex-flow: row-reverse;
 }
-
-form span{
-  font-size: 1.5em;
-}
-form ul li{
-  margin-left: 10px;
-  list-style-type: none;
-  font-size: 1.1em;
-}
-form ul{
-  height: 100%;
-  width: 250px;
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
-}
-form ul{
-  height: 100%;
-  margin-top: 10px;
-}
 #none-chosen{
   margin-left: 10px;
   font-size: 1.25em;
