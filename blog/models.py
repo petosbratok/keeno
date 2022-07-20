@@ -36,9 +36,5 @@ class Post(models.Model):
     seats_taken = models.TextField(blank=True)
 
 
-    def get_api_like_url(self):
-        return reverse('like-api-toggle', kwargs={'pk': self.pk})
-
-
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})

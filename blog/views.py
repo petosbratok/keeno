@@ -1,19 +1,11 @@
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.db.models import Count
+from django.shortcuts import get_object_or_404
 from django.views.generic import (
     ListView,
     DetailView,
     UpdateView,
-    RedirectView,
 )
 from .models import Post, Movie
 from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import authentication, permissions
 
 class UpdateSeatsAPI(APIView):
     def get(self, request, pk, format=None):
